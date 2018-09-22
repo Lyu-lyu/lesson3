@@ -15,14 +15,19 @@ with open('referat.txt', 'r', encoding='utf-8') as ref:
     content = re.sub(r'\s+', ' ', referat)
     length2 = len(content)
     print(('The text length is: {0}').format(length2))
+    list_of_words = content.replace('.', '!')
+    # print(list_of_words)
 
 def count_all_words():
     # replacing paragraph symbols with space and making list
-    spisok = (content.replace('\n', ' ')).split()
-    # pprint (spisok)
+    list_of_words = (content.replace('\n', ' ')).split()
+    # pprint (list_of_words)
     # counting elements in list
     number = 0
-    for word in spisok:
+    for word in list_of_words:
         number+=1
     return number
 print ('The number of words in text is: ', count_all_words())
+
+with open('referat2.txt', 'w', encoding='utf-8') as d:
+      d.write(list_of_words)
